@@ -1,1 +1,17 @@
+name: Deploy Portfolio Website
 
+on:
+  push:
+    branches:
+      - main  # Trigger deploy when changes are pushed to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Use an Ubuntu runner for the job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Check out the code from the repository
+
+      - name: Deploy to Server
+        run: |
+          ./deploy.sh  # Run the deployment script to deploy the site
